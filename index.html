@@ -36,7 +36,25 @@
   .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
   .gold { color: var(--gold); }
   .serif { font-family: 'Noto Serif Thai', serif; }
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@700&display=swap');
 
+  .brand-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--gold);
+    display: block; line-height: 1.2;
+  }
+  .brand-by {
+    font-family: 'Dancing Script', cursive;
+    font-size: 13px; color: #8a9ab5;
+    margin-right: 3px;
+  }
+  .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--cream);
+  }
+  
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -455,7 +473,10 @@
 
 <!-- NAV -->
 <nav>
-  <span class="nav-brand">แผนคุ้มครองครอบครัว</span>
+  <span class="nav-brand">
+  <span class="brand-main">Life Design</span><br>
+  <span class="brand-by">by</span><span class="brand-name">พยัต</span>
+  </span>
   <a href="#cta" class="nav-cta">เริ่มต้น 990 บาท →</a>
 </nav>
 
