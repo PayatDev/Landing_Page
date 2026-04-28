@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>รับแผนของคุณ | Life Design by พยัต</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600;700;900&family=Sarabun:wght@300;400;500;600&family=Dancing+Script:wght@600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #080e1c;
+    --navy-mid: #0f1a30;
+    --navy-light: #1a2a48;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --cream: #f7f2e8;
+    --cream-mid: #ede6d6;
+    --text-muted: #8a9ab5;
+    --border: rgba(201,168,76,0.2);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--navy);
+    color: var(--cream);
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  nav {
+    padding: 18px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+  .brand-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--gold); display: block; line-height: 1.2;
+  }
+  .brand-by { font-family: 'Dancing Script', cursive; font-size: 13px; color: #8a9ab5; margin-right: 3px; }
+  .brand-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--cream); }
+  .back-link {
+    font-size: 13px; color: var(--text-muted);
+    text-decoration: none; display: flex; align-items: center; gap: 6px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  main { max-width: 600px; margin: 0 auto; padding: 60px 24px 80px; }
+
+  .form-header { margin-bottom: 40px; }
+  .form-header h1 {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 900; line-height: 1.25; margin-bottom: 12px;
+  }
+  .form-header h1 em { font-style: normal; color: var(--gold); }
+  .form-header p { font-size: 15px; color: var(--text-muted); }
+
+  .summary-box {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px; margin-bottom: 36px;
+  }
+  .price-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 16px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .price-label { font-size: 15px; font-weight: 600; }
+  .price-value {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 28px; font-weight: 900; color: var(--gold);
+  }
+  .summary-items { list-style: none; }
+  .summary-items li {
+    font-size: 13px; color: var(--text-muted);
+    padding: 4px 0; display: flex; gap: 8px;
+  }
+  .summary-items .check { color: var(--gold); flex-shrink: 0; }
+
+  .form-group { margin-bottom: 24px; }
+  label {
+    display: block; font-size: 14px; font-weight: 600;
+    color: var(--cream-mid); margin-bottom: 8px;
+  }
+  label .optional { font-weight: 400; color: var(--text-muted); font-size: 12px; margin-left: 4px; }
+  input, textarea {
+    width: 100%;
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 16px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 15px; color: var(--cream);
+    outline: none; transition: border-color 0.2s;
+  }
+  input:focus, textarea:focus { border-color: var(--gold); }
+  input::placeholder, textarea::placeholder { color: var(--text-muted); }
+  textarea { resize: vertical; min-height: 100px; }
+
+  .payment-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .payment-option { position: relative; }
+  .payment-option input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .payment-option label {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px 12px;
+    cursor: pointer; transition: all 0.2s;
+    text-align: center; font-size: 13px; font-weight: 500;
+    color: var(--text-muted); margin: 0;
+  }
+  .payment-option label .icon { font-size: 20px; }
+  .payment-option input[type="radio"]:checked + label {
+    border-color: var(--gold); color: var(--cream);
+    background: rgba(201,168,76,0.08);
+  }
+
+  .promptpay-box {
+    display: none;
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px;
+    margin-top: 16px; text-align: center;
+  }
+  .promptpay-box.show { display: block; }
+  .promptpay-box p { font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+  .promptpay-box strong { color: var(--gold); }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--gold); color: var(--navy);
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 700; font-size: 17px;
+    padding: 18px 36px;
+    border: none; border-radius: 8px;
+    cursor: pointer; transition: all 0.25s;
+    box-shadow: 0 8px 32px rgba(201,168,76,0.25);
+    margin-top: 8px;
+  }
+  .btn-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.35);
+  }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .form-note { text-align: center; margin-top: 16px; font-size: 12px; color: var(--text-muted); }
+
+  .success-msg { display: none; text-align: center; padding: 60px 24px; }
+  .success-msg.show { display: block; }
+  .success-icon { font-size: 56px; margin-bottom: 20px; }
+  .success-msg h2 {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 28px; font-weight: 700;
+    margin-bottom: 12px; color: var(--gold);
+  }
+  .success-msg p { font-size: 15px; color: var(--text-muted); line-height: 1.75; }
+
+  @media (max-width: 480px) {
+    nav { padding: 14px 16px; }
+    .payment-options { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" style="text-decoration:none;">
+    <span class="brand-main">Life Design</span>
+    <span class="brand-by">by</span><span class="brand-name">พยัต</span>
+  </a>
+  <a href="index.html" class="back-link">← กลับหน้าหลัก</a>
+</nav>
+
+<main>
+  <div id="form-section">
+    <div class="form-header">
+      <h1>รับแผนของคุณ<br><em>เริ่มต้น 990 บาท</em></h1>
+      <p>กรอกข้อมูลด้านล่าง ผมจะติดต่อกลับเพื่อยืนยันและส่ง Link LINE น้องแพลนให้คุณ</p>
+    </div>
+
+    <div class="summary-box">
+      <div class="price-row">
+        <span class="price-label">แผนคุ้มครองครอบครัว</span>
+        <span class="price-value">990 ฿</span>
+      </div>
+      <ul class="summary-items">
+        <li><span class="check">✦</span> อุดรูรั่วครบทุกด้าน ด้วยเอกสาร 5 ชิ้น</li>
+        <li><span class="check">✦</span> ผ่านการตรวจสอบด้านกฎหมายและการเงิน</li>
+        <li><span class="check">✦</span> ส่งภายใน 3 วันทำการ</li>
+        <li><span class="check">✦</span> ข้อมูลเป็นความลับ ตาม PDPA</li>
+      </ul>
+    </div>
+
+    <form id="order-form">
+      <div class="form-group">
+        <label for="name">ชื่อ-นามสกุล</label>
+        <input type="text" id="name" name="name" placeholder="เช่น สมชาย ใจดี" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email <span class="optional">(สำหรับรับเอกสาร)</span></label>
+        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">เบอร์โทรศัพท์ <span class="optional">(ไม่บังคับ)</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="08x-xxx-xxxx">
+      </div>
+
+      <div class="form-group">
+        <label>ช่องทางชำระเงิน</label>
+        <div class="payment-options">
+          <div class="payment-option">
+            <input type="radio" id="pay-promptpay" name="payment" value="PromptPay" required>
+            <label for="pay-promptpay"><span class="icon">📱</span>PromptPay</label>
+          </div>
+          <div class="payment-option">
+            <input type="radio" id="pay-card" name="payment" value="บัตรเครดิต/เดบิต">
+            <label for="pay-card"><span class="icon">💳</span>บัตรเครดิต</label>
+          </div>
+          <div class="payment-option">
+            <input type="radio" id="pay-truemoney" name="payment" value="TrueMoney Wallet">
+            <label for="pay-truemoney"><span class="icon">🟠</span>TrueMoney</label>
+          </div>
+        </div>
+
+        <div class="promptpay-box" id="promptpay-box">
+          <p>โอนเงิน <strong>990 บาท</strong> มาที่<br>
+          PromptPay: <strong>0xx-xxx-xxxx</strong><br>
+          ชื่อบัญชี: <strong>พยัต จิรสุวรรณพงศ์</strong><br><br>
+          แนบสลิปมาทาง Email หลังกรอก Form ครับ</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="note">หมายเหตุ <span class="optional">(ไม่บังคับ)</span></label>
+        <textarea id="note" name="note" placeholder="มีอะไรอยากบอกเพิ่มเติมไหม?"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submit-btn">ส่งข้อมูลและรอการยืนยัน →</button>
+      <p class="form-note">🔒 ข้อมูลของคุณปลอดภัย ตาม PDPA · ผมจะติดต่อกลับภายใน 24 ชั่วโมง</p>
+    </form>
+  </div>
+
+  <div class="success-msg" id="success-msg">
+    <div class="success-icon">✅</div>
+    <h2>ได้รับข้อมูลแล้วครับ!</h2>
+    <p>ผมจะติดต่อกลับทาง Email ภายใน 24 ชั่วโมง<br>
+    เพื่อยืนยันการชำระเงินและส่ง Link LINE น้องแพลนให้คุณ<br><br>
+    ขอบคุณที่ไว้วางใจครับ 🙏</p>
+  </div>
+</main>
+
+<script>
+  const RAILWAY_URL = "https://financial-bot-production-5bdd.up.railway.app/order";
+
+  document.querySelectorAll('input[name="payment"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const box = document.getElementById('promptpay-box');
+      box.classList.toggle('show', radio.value === 'PromptPay' && radio.checked);
+    });
+  });
+
+  const form = document.getElementById('order-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'กำลังส่ง...';
+
+    const payload = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      payment: document.querySelector('input[name="payment"]:checked')?.value || "",
+      note: document.getElementById('note').value
+    };
+
+    try {
+      const res = await fetch(RAILWAY_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        document.getElementById('form-section').style.display = 'none';
+        document.getElementById('success-msg').classList.add('show');
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'ส่งข้อมูลและรอการยืนยัน →';
+        alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'ส่งข้อมูลและรอการยืนยัน →';
+      alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+    }
+  });
+</script>
+</body>
+</html>
