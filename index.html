@@ -267,6 +267,100 @@
     padding: 4px 10px; border-radius: 100px;
   }
 
+  /* SAMPLE DOCS */
+  #sample { padding: 100px 0; background: var(--navy-mid); }
+  .doc-stack-wrap {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+  }
+  .doc-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .doc-tab {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 13px; font-weight: 500;
+    padding: 6px 16px; border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent; color: var(--text-muted);
+    cursor: pointer; transition: all 0.2s;
+  }
+  .doc-tab.active {
+    border-color: var(--gold); color: var(--gold);
+    background: rgba(201,168,76,0.08);
+  }
+  .doc-preview {
+    background: var(--navy);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 28px;
+    min-height: 420px;
+  }
+  .doc-preview-title {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--gold); margin-bottom: 4px;
+  }
+  .doc-preview-sub {
+    font-size: 12px; color: var(--text-muted);
+    margin-bottom: 20px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .doc-preview-body { display: none; }
+  .doc-preview-body.active { display: block; }
+  .doc-section-head {
+    background: var(--navy-light);
+    border-left: 3px solid var(--gold);
+    padding: 10px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 12px;
+  }
+  .doc-section-head span {
+    font-size: 12px; color: var(--gold); font-weight: 600;
+  }
+  .doc-section-head p {
+    font-size: 14px; color: var(--cream); font-weight: 600; margin: 0;
+  }
+  .doc-text {
+    font-size: 14px; color: var(--text-muted);
+    line-height: 1.8; margin-bottom: 12px;
+  }
+  .doc-highlight {
+    background: rgba(201,168,76,0.06);
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px;
+    font-size: 13px; color: var(--cream-mid);
+    line-height: 1.7; margin-bottom: 12px;
+  }
+  .doc-highlight strong { color: var(--gold); }
+  .doc-blur {
+    filter: blur(4px); user-select: none;
+    color: var(--cream-mid); font-size: 13px;
+  }
+  .doc-stack-right { position: relative; }
+  .stack-visual {
+    position: relative; height: 300px; margin-bottom: 24px;
+  }
+  .stack-card {
+    position: absolute; left: 0; right: 0;
+    background: var(--navy);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px 24px;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .stack-card:hover { border-color: var(--gold); }
+  .stack-card.active-card { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+  .stack-card-num { font-size: 11px; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
+  .stack-card-title { font-family: 'Noto Serif Thai', serif; font-size: 15px; font-weight: 700; color: var(--cream); }
+  .stack-card-desc { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+  .doc-cta-note {
+    font-size: 13px; color: var(--text-muted);
+    text-align: center; margin-top: 16px;
+    padding: 16px; border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  @media (max-width: 640px) {
+    .doc-stack-wrap { grid-template-columns: 1fr; }
+    .stack-visual { height: auto; position: static; }
+    .stack-card { position: static; margin-bottom: 8px; }
+  }
+  
   /* PROCESS */
   #process { padding: 100px 0; background: var(--navy-mid); }
   .steps { margin-top: 56px; position: relative; }
@@ -580,6 +674,166 @@
   </div>
 </section>
 
+<!-- SAMPLE DOCS -->
+<section id="sample">
+  <div class="container">
+    <h2 class="section-title serif reveal">ตัวอย่างเอกสารจริง</h2>
+    <p class="section-lead reveal">นี่คือตัวอย่างจากเคสจริง — เนื้อหาครบ ใช้ได้ทันทีหลังเซ็นชื่อ</p>
+
+    <div class="doc-stack-wrap reveal">
+
+      <!-- LEFT: Preview -->
+      <div>
+        <div class="doc-tabs">
+          <button class="doc-tab active" onclick="switchDoc(0)">แผนครอบครัว</button>
+          <button class="doc-tab" onclick="switchDoc(1)">พินัยกรรม</button>
+          <button class="doc-tab" onclick="switchDoc(2)">POA</button>
+          <button class="doc-tab" onclick="switchDoc(3)">Living Will</button>
+          <button class="doc-tab" onclick="switchDoc(4)">คู่มือฉุกเฉิน</button>
+        </div>
+        <div class="doc-preview">
+          <div class="doc-preview-title" id="doc-title">แผนคุ้มครองครอบครัว</div>
+          <div class="doc-preview-sub">จัดทำโดย คุณพยัต จิรสุวรรณพงศ์ | ฉบับตัวอย่าง Beta</div>
+
+          <!-- DOC 0: แผนครอบครัว -->
+          <div class="doc-preview-body active" id="body-0">
+            <p class="doc-text">การทำพินัยกรรมนั้น ถ้ามองแค่วิธีการจัดทำนั้นไม่ยากเลย เพียงแค่เขียนข้อความบอกว่าอยากให้ทรัพย์สินไปอยู่ที่ไหน ลงวันที่แล้วเซ็นชื่อต่อหน้าพยาน 2 คน ก็ถูกต้องตามกฎหมายแล้ว</p>
+            <p class="doc-text">แต่สำหรับพ่อแม่ที่มีลูกเล็ก เรื่องนี้ต้องให้ไกลกว่านั้น เพราะสิ่งที่คุณต้องการจริงๆ ไม่ใช่แค่เอกสารที่ถูกกฎหมาย แต่คือ <strong style="color:var(--cream);">แผน</strong></p>
+            <div class="doc-section-head">
+              <span>01</span>
+              <p>เงินพร้อมใช้ทันทีหลังจากไป</p>
+            </div>
+            <p class="doc-text">ทันทีที่เราจากไป โลกไม่ได้หยุดรอ ค่าใช้จ่ายเกิดขึ้นภายในไม่กี่ชั่วโมง ทั้งค่ารักษาพยาบาลครั้งสุดท้าย ค่าจัดงานศพ ค่าธรรมเนียมแจ้งตาย สิ่งเหล่านี้ต้องใช้ "เงินสดทันที"</p>
+            <div class="doc-highlight">
+              จากประสบการณ์ของผม สิ่งสำคัญไม่ใช่แค่ "มีเงินพอ" แต่ต้อง <strong>"หยิบใช้ได้ทันที"</strong> — ผมแนะนำให้เตรียมเงินสดในบัญชีที่คู่สมรสเข้าถึงได้โดยตรง
+            </div>
+            <p class="doc-text" style="color:var(--gold); font-size:13px;">+ อีก 11 ประเด็น ครอบคลุมทุกสถานการณ์ที่พ่อแม่ลูกเล็กควรรู้...</p>
+          </div>
+
+          <!-- DOC 1: พินัยกรรม -->
+          <div class="doc-preview-body" id="body-1">
+            <div class="doc-section-head">
+              <span>พินัยกรรม — แบบธรรมดา มาตรา ๑๖๕๖</span>
+              <p>ข้อ ๑ ผู้ทำพินัยกรรม</p>
+            </div>
+            <p class="doc-text">ข้าพเจ้า <span class="doc-blur">[ชื่อ-นามสกุล]</span> อายุ <span class="doc-blur">[อายุ]</span> ปี สัญชาติไทย ถือบัตรประจำตัวประชาชนเลขที่ <span class="doc-blur">[เลขบัตร]</span> ขอแสดงเจตนาอันเป็นคำสั่งครั้งสุดท้ายไว้ดังนี้</p>
+            <div class="doc-section-head">
+              <span>ข้อ ๒</span>
+              <p>การแต่งตั้งผู้จัดการมรดก</p>
+            </div>
+            <p class="doc-text">ข้าพเจ้าขอแต่งตั้งให้ <span class="doc-blur">[ชื่อคู่สมรส]</span> เป็นผู้จัดการมรดกเพียงผู้เดียว มีอำนาจเต็มในการดำเนินการทุกอย่างเกี่ยวกับกองมรดก รวมถึงการรับ ส่งมอบ ขาย โอน หรือชำระหนี้ของกองมรดก</p>
+            <div class="doc-section-head">
+              <span>ข้อ ๓</span>
+              <p>การแต่งตั้งผู้ปกครองบุตร</p>
+            </div>
+            <p class="doc-text">ข้าพเจ้าขอแต่งตั้งให้ <span class="doc-blur">[ชื่อผู้ปกครอง]</span> เป็นผู้ปกครองบุตรผู้เยาว์ทุกคน และขอแต่งตั้ง <span class="doc-blur">[ชื่อผู้ดูแลเงิน]</span> เป็นผู้ดูแลทรัพย์สินของบุตรแยกจากกัน</p>
+            <p class="doc-text" style="color:var(--gold); font-size:13px;">+ ระบุการแบ่งทรัพย์สินทุกรายการตามที่คุณต้องการ...</p>
+          </div>
+
+          <!-- DOC 2: POA -->
+          <div class="doc-preview-body" id="body-2">
+            <div class="doc-section-head">
+              <span>หนังสือมอบอำนาจ</span>
+              <p>ขอบเขตการมอบอำนาจ</p>
+            </div>
+            <div class="doc-highlight">
+              <strong>ธนาคารทุกแห่ง</strong> — ฝาก ถอน โอน ปิดบัญชี เปิดบัญชีใหม่<br>
+              <strong>หลักทรัพย์</strong> — ซื้อ ขาย โอน จัดการบัญชีหลักทรัพย์<br>
+              <strong>ประกันสังคม</strong> — เรียกร้องสิทธิ์และรับเงินแทน<br>
+              <strong>กรมสรรพากร</strong> — ยื่นแบบและรับเงินคืนภาษีแทน<br>
+              <strong>หน่วยงานราชการ</strong> — ติดต่อและยื่นเอกสารแทนในนามผู้มอบอำนาจ
+            </div>
+            <div class="doc-section-head">
+              <span>เงื่อนไข</span>
+              <p>มีผลทันที แม้ผู้มอบอำนาจหมดสติ</p>
+            </div>
+            <p class="doc-text">หนังสือฉบับนี้มีผลทันทีแต่วันลงนาม และยังคงมีผลแม้ผู้มอบอำนาจจะไม่สามารถถือสารหรือตัดสินใจได้ตามปกติ — นี่คือสิ่งที่ทำให้แตกต่างจาก POA ทั่วไป</p>
+          </div>
+
+          <!-- DOC 3: Living Will -->
+          <div class="doc-preview-body" id="body-3">
+            <div class="doc-section-head">
+              <span>หนังสือแสดงเจตนาฯ มาตรา ๑๒</span>
+              <p>เจตนาของข้าพเจ้า</p>
+            </div>
+            <p class="doc-text">ข้าพเจ้าไม่ประสงค์จะรับการรักษาที่มีเป้าหมายเพื่อยืดการตายเท่านั้น โดยเฉพาะในกรณีต่อไปนี้:</p>
+            <div class="doc-highlight">
+              — การใส่เครื่องช่วยหายใจในกรณีที่ไม่มีโอกาสฟื้นตัว<br>
+              — การกระตุ้นหัวใจในกรณีที่แพทย์วินิจฉัยว่าไม่มีโอกาสฟื้นคืนสติ<br>
+              — การให้อาหารทางสายยางในกรณีที่อยู่ในภาวะหมดสติถาวร<br>
+              — การรักษาที่ก่อให้เกิดความทรมานโดยไม่มีประโยชน์ต่อการฟื้นตัว
+            </div>
+            <div class="doc-section-head">
+              <span>ผู้ตัดสินใจแทน</span>
+              <p>หลัก: คู่สมรส | สำรอง: ระบุตามต้องการ</p>
+            </div>
+            <p class="doc-text">ข้าพเจ้าขอให้แพทย์และบุคลากรทางการแพทย์ทุกท่านปฏิบัติตามเจตนาที่ระบุไว้นี้</p>
+          </div>
+
+          <!-- DOC 4: คู่มือฉุกเฉิน -->
+          <div class="doc-preview-body" id="body-4">
+            <div class="doc-section-head">
+              <span>หมวด ๑</span>
+              <p>สิ่งที่ต้องทำใน 24 ชั่วโมงแรก</p>
+            </div>
+            <div class="doc-highlight">
+              <strong>แจ้งตาย:</strong> นำใบรับรองแพทย์ไปแจ้งสำนักงานเขต ภายใน 24 ชั่วโมง<br>
+              <strong>ขอใบมรณบัตร:</strong> ติดต่อโรงพยาบาลที่รักษา นำไปใช้ดำเนินเรื่องต่างๆ<br>
+              <strong>แจ้งนายจ้าง:</strong> ติดต่อ <span class="doc-blur">[สถานที่ทำงาน]</span> โทร <span class="doc-blur">[เบอร์โทร]</span>
+            </div>
+            <div class="doc-section-head">
+              <span>หมวด ๔</span>
+              <p>ประกันชีวิต — เรียกร้องได้ทันที</p>
+            </div>
+            <div class="doc-highlight">
+              บริษัทประกัน: <span class="doc-blur">[ชื่อบริษัท]</span><br>
+              กรมธรรม์เลข: <span class="doc-blur">[เลขกรมธรรม์]</span><br>
+              ทุนประกัน: <span class="doc-blur">[จำนวนเงิน]</span> บาท<br>
+              วิธีเรียกร้อง: ติดต่อบริษัทโดยตรง โทร <span class="doc-blur">[เบอร์]</span>
+            </div>
+            <p class="doc-text" style="color:var(--gold); font-size:13px;">+ อีก 5 หมวด ครอบคลุมทุกบัญชี ทรัพย์สิน และผู้ที่ต้องติดต่อ...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Stack -->
+      <div class="doc-stack-right">
+        <div class="stack-visual">
+          <div class="stack-card active-card" style="top:0;" id="sc-0" onclick="switchDoc(0)">
+            <div class="stack-card-num">01</div>
+            <div class="stack-card-title">แผนคุ้มครองครอบครัว</div>
+            <div class="stack-card-desc">วิเคราะห์รูรั่ว 12 ประเด็น พร้อมแนวทางปิด</div>
+          </div>
+          <div class="stack-card" style="top:68px;" id="sc-1" onclick="switchDoc(1)">
+            <div class="stack-card-num">02</div>
+            <div class="stack-card-title">ร่างพินัยกรรม</div>
+            <div class="stack-card-desc">ตามมาตรา ๑๖๕๖ ใช้ได้ทันทีหลังเซ็นชื่อ</div>
+          </div>
+          <div class="stack-card" style="top:136px;" id="sc-2" onclick="switchDoc(2)">
+            <div class="stack-card-num">03</div>
+            <div class="stack-card-title">หนังสือมอบอำนาจ (POA)</div>
+            <div class="stack-card-desc">มีผลแม้ผู้มอบอำนาจหมดสติ</div>
+          </div>
+          <div class="stack-card" style="top:204px;" id="sc-3" onclick="switchDoc(3)">
+            <div class="stack-card-num">04</div>
+            <div class="stack-card-title">Living Will</div>
+            <div class="stack-card-desc">ตามมาตรา ๑๒ พ.ร.บ.สุขภาพแห่งชาติ</div>
+          </div>
+          <div class="stack-card" style="top:272px;" id="sc-4" onclick="switchDoc(4)">
+            <div class="stack-card-num">05</div>
+            <div class="stack-card-title">คู่มือฉุกเฉินครอบครัว</div>
+            <div class="stack-card-desc">7 หมวด พร้อมใช้ทันทีเมื่อถึงเวลา</div>
+          </div>
+        </div>
+        <div class="doc-cta-note">
+          นี่คือตัวอย่างจากเคส Beta — แผนของคุณจะถูกปรับให้ตรงกับสถานการณ์จริงของครอบครัวคุณ
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- PROCESS -->
 <section id="process">
   <div class="container">
@@ -762,6 +1016,20 @@
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  function switchDoc(idx) {
+  document.querySelectorAll('.doc-preview-body').forEach(function(el, i) {
+    el.classList.toggle('active', i === idx);
+  });
+  document.querySelectorAll('.doc-tab').forEach(function(el, i) {
+    el.classList.toggle('active', i === idx);
+  });
+  document.querySelectorAll('.stack-card').forEach(function(el, i) {
+    el.classList.toggle('active-card', i === idx);
+  });
+  var titles = ['แผนคุ้มครองครอบครัว','ร่างพินัยกรรม','หนังสือมอบอำนาจ (POA)','หนังสือแสดงเจตนาเกี่ยวกับการรักษา','คู่มือฉุกเฉินครอบครัว'];
+  document.getElementById('doc-title').textContent = titles[idx];
+}
 </script>
 </body>
 </html>
