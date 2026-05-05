@@ -268,9 +268,9 @@
   }
 
   /* SAMPLE DOCS */
-  #sample { padding: 100px 0; background: var(--navy-mid); }
+  #sample { padding: 100px 0; background: var(--navy); }
   .doc-stack-wrap {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+    display: block;
   }
   .doc-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
   .doc-tab {
@@ -291,6 +291,7 @@
     border-radius: 12px;
     padding: 40px 48px;
     min-height: 480px;
+    width: 100%;
   }
   .doc-preview-title {
     font-family: 'Noto Serif Thai', serif;
@@ -332,28 +333,6 @@
   .doc-blur {
     filter: blur(4px); user-select: none;
     color: var(--cream-mid); font-size: 13px;
-  }
-  .doc-stack-right { position: relative; }
-  .stack-visual {
-    position: relative; height: 300px; margin-bottom: 24px;
-  }
-  .stack-card {
-    position: absolute; left: 0; right: 0;
-    background: var(--navy);
-    border: 1px solid var(--border);
-    border-radius: 12px; padding: 20px 24px;
-    cursor: pointer; transition: all 0.2s;
-  }
-  .stack-card:hover { border-color: var(--gold); }
-  .stack-card.active-card { border-color: var(--gold); background: rgba(201,168,76,0.05); }
-  .stack-card-num { font-size: 11px; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
-  .stack-card-title { font-family: 'Noto Serif Thai', serif; font-size: 15px; font-weight: 700; color: var(--cream); }
-  .stack-card-desc { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
-  .doc-cta-note {
-    font-size: 13px; color: var(--text-muted);
-    text-align: center; margin-top: 16px;
-    padding: 16px; border: 1px solid var(--border);
-    border-radius: 8px;
   }
   @media (max-width: 640px) {
     .doc-stack-wrap { display: block; }
