@@ -356,7 +356,7 @@
     border-radius: 8px;
   }
   @media (max-width: 640px) {
-    .doc-stack-wrap { grid-template-columns: 1fr; }
+    .doc-stack-wrap { display: block; }
     .stack-visual { height: auto; position: static; }
     .stack-card { position: static; margin-bottom: 8px; }
   }
@@ -795,41 +795,6 @@
           </div>
         </div>
       </div>
-
-      <!-- RIGHT: Stack -->
-      <div class="doc-stack-right">
-        <div class="stack-visual">
-          <div class="stack-card active-card" style="top:0;" id="sc-0" onclick="switchDoc(0)">
-            <div class="stack-card-num">01</div>
-            <div class="stack-card-title">แผนคุ้มครองครอบครัว</div>
-            <div class="stack-card-desc">วิเคราะห์รูรั่ว 12 ประเด็น พร้อมแนวทางปิด</div>
-          </div>
-          <div class="stack-card" style="top:68px;" id="sc-1" onclick="switchDoc(1)">
-            <div class="stack-card-num">02</div>
-            <div class="stack-card-title">ร่างพินัยกรรม</div>
-            <div class="stack-card-desc">ตามมาตรา ๑๖๕๖ ใช้ได้ทันทีหลังเซ็นชื่อ</div>
-          </div>
-          <div class="stack-card" style="top:136px;" id="sc-2" onclick="switchDoc(2)">
-            <div class="stack-card-num">03</div>
-            <div class="stack-card-title">หนังสือมอบอำนาจ (POA)</div>
-            <div class="stack-card-desc">มีผลแม้ผู้มอบอำนาจหมดสติ</div>
-          </div>
-          <div class="stack-card" style="top:204px;" id="sc-3" onclick="switchDoc(3)">
-            <div class="stack-card-num">04</div>
-            <div class="stack-card-title">Living Will</div>
-            <div class="stack-card-desc">ตามมาตรา ๑๒ พ.ร.บ.สุขภาพแห่งชาติ</div>
-          </div>
-          <div class="stack-card" style="top:272px;" id="sc-4" onclick="switchDoc(4)">
-            <div class="stack-card-num">05</div>
-            <div class="stack-card-title">คู่มือฉุกเฉินครอบครัว</div>
-            <div class="stack-card-desc">7 หมวด พร้อมใช้ทันทีเมื่อถึงเวลา</div>
-          </div>
-        </div>
-        <div class="doc-cta-note">
-          นี่คือตัวอย่างจากเคส Beta — แผนของคุณจะถูกปรับให้ตรงกับสถานการณ์จริงของครอบครัวคุณ
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
