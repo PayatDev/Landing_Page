@@ -104,7 +104,18 @@
     box-shadow: 0 8px 32px rgba(201,168,76,0.25);
   }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.35); }
-
+  .btn-outline {
+    background: transparent; color: var(--cream);
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 500; font-size: 16px;
+    padding: 14px 36px;
+    border: 1px solid rgba(247,242,232,0.4);
+    border-radius: 6px;
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.25s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
   /* SECTION COMMONS */
   .section-title {
     font-family: 'Noto Serif Thai', serif;
@@ -325,8 +336,12 @@
   }
   #cta h2 { font-family: 'Noto Serif Thai', serif; font-size: clamp(32px, 5vw, 60px); font-weight: 900; line-height: 1.2; margin-bottom: 20px; position: relative; z-index: 1; }
   #cta p { font-size: 17px; color: #8a9ab5; margin-bottom: 48px; position: relative; z-index: 1; }
-  .cta-actions { position: relative; z-index: 1; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
+  .cta-actions { 
+    position: relative; z-index: 1; 
+    display: flex; flex-direction: column;
+    gap: 12px; justify-content: center; align-items: center;
+  }
+  
   /* FOOTER */
   footer {
     padding: 40px 24px; border-top: 1px solid var(--border);
