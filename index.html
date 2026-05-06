@@ -183,7 +183,40 @@
     text-align: center; margin-top: 20px;
     font-size: 13px; color: var(--text-muted); font-style: italic;
   }
-
+  /* FIT / NOT FIT */
+  #fit { padding: 100px 0; background: var(--navy-mid); }
+  .fit-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 0;
+  }
+  .fit-box {
+    border-radius: 12px; padding: 32px 28px;
+  }
+  .fit-box.yes {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+  .fit-box.no {
+    background: rgba(139,148,158,0.05);
+    border: 1px solid rgba(139,148,158,0.15);
+  }
+  .fit-box-title {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 18px; font-weight: 700;
+    margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
+  }
+  .fit-box.yes .fit-box-title { color: var(--gold); }
+  .fit-box.no .fit-box-title { color: var(--text-muted); }
+  .fit-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .fit-list li {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 14px; line-height: 1.7;
+  }
+  .fit-list.yes-list li { color: var(--cream-mid); }
+  .fit-list.no-list li { color: var(--text-muted); }
+  .fit-icon { flex-shrink: 0; font-size: 15px; margin-top: 2px; }
+  @media (max-width: 640px) {
+    .fit-grid { grid-template-columns: 1fr; }
+  }
   /* PROCESS */
   #process { padding: 100px 0; background: var(--navy); }
   .steps { margin-top: 56px; position: relative; }
@@ -379,6 +412,37 @@
   </div>
 </section>
 
+<!-- FIT / NOT FIT -->
+<section id="fit">
+  <div class="container">
+    <h2 class="section-title serif reveal">บริการนี้เหมาะกับคุณไหม?</h2>
+    <p class="section-lead reveal">ออกแบบมาสำหรับกลุ่มคนที่ชัดเจน — ตรวจสอบก่อนตัดสินใจ</p>
+    <div class="fit-grid reveal">
+
+      <div class="fit-box yes">
+        <div class="fit-box-title">✦ เหมาะสำหรับคุณถ้า...</div>
+        <ul class="fit-list yes-list">
+          <li><span class="fit-icon">👶</span>มีลูกอายุ 0–10 ปี และคุณอายุประมาณ 35–45 ปี</li>
+          <li><span class="fit-icon">📋</span>ยังไม่มีประกันชีวิต หรือมีแต่ไม่แน่ใจว่าพอไหม หรือมีแล้วแต่ยังไม่ได้จัดให้เป็นระบบ</li>
+          <li><span class="fit-icon">📄</span>ยังไม่มีพินัยกรรม และไม่รู้ว่าต้องเตรียมเอกสารอะไรบ้าง</li>
+          <li><span class="fit-icon">🏠</span>ทรัพย์สินไม่ซับซ้อน — บ้าน เงินเก็บ ประกัน ทั่วไป</li>
+          <li><span class="fit-icon">🛡️</span>อยากให้ครอบครัวรับมือได้ทันที ถ้าวันนั้นมาถึง</li>
+        </ul>
+      </div>
+
+      <div class="fit-box no">
+        <div class="fit-box-title">✕ อาจไม่เหมาะถ้า...</div>
+        <ul class="fit-list no-list">
+          <li><span class="fit-icon">—</span>ยังไม่มีลูก หรือลูกโตแล้วทุกคน</li>
+          <li><span class="fit-icon">—</span>ทรัพย์สินซับซ้อน เช่น ธุรกิจที่มีหุ้นส่วนหลายคน ที่ดินกรรมสิทธิ์รวม หรือสินทรัพย์ในนามบริษัท</li>
+          <li><span class="fit-icon">—</span>ต้องการผู้เชี่ยวชาญดูแลและจัดการให้ครบทุกขั้นตอน</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+  
 <!-- SAMPLE DOCS -->
 <section id="sample">
   <div class="container">
@@ -472,9 +536,9 @@
     <h2 class="section-title serif reveal">ลงทุนครั้งเดียว มีแผนใช้ไปตลอด</h2>
     <div class="pricing-card reveal">
       <div class="pricing-header">
-        <span class="pricing-badge">🔥 Early Access — ลด 80%</span>
+        <span class="pricing-badge">🎁 ช่วงพิเศษ — ลด 60%</span>
         <div class="price-old">ราคาปกติ 4,999 บาท</div>
-        <div class="price-main">990</div>
+        <div class="price-main">1,990</div>
         <div class="price-unit">บาท / ครั้ง · ต่อแผน</div>
       </div>
       <div class="pricing-body">
@@ -536,10 +600,12 @@
       ทุกวันที่รอ<br>
       <em class="gold">คือวันที่ครอบครัวยังไม่ได้รับการคุ้มครอง</em>
     </h2>
-    <p class="reveal">วางแผนคุ้มครองครอบครัวครบ 5 เอกสาร — เพียง 990 บาท</p>
+    <p class="reveal">เริ่มต้นฟรี — เช็คความเสี่ยงของครอบครัวคุณก่อนได้เลย</p>
     <div class="cta-actions reveal">
-      <a href="order.html" class="btn-primary">รับแผนของคุณเลย →</a>
+      <a href="#" class="btn-primary">เช็คความเสี่ยงฟรี →</a>
+      <a href="order.html" class="btn-outline" style="color:var(--cream); border-color:rgba(247,242,232,0.25);">รับแผนของคุณเลย — 1,990 บาท</a>
     </div>
+    <p class="reveal" style="margin-top:16px; font-size:13px; color:var(--text-muted);">เช็คความเสี่ยงฟรี ไม่มีข้อผูกมัด · ผลประเมินส่งทาง Email ภายใน 24 ชั่วโมง</p>
   </div>
 </section>
 
