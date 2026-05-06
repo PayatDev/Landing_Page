@@ -289,19 +289,9 @@
     background: var(--navy);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 40px 48px;
-    min-height: 480px;
+    padding: 12px;
     width: 100%;
-  }
-  .doc-preview-title {
-    font-family: 'Noto Serif Thai', serif;
-    font-size: 20px; font-weight: 700;
-    color: var(--gold); margin-bottom: 4px;
-  }
-  .doc-preview-sub {
-    font-size: 12px; color: var(--text-muted);
-    margin-bottom: 20px; padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
+    overflow: hidden;
   }
   .doc-preview-body { display: none; }
   .doc-preview-body.active { display: block; }
@@ -655,124 +645,30 @@
 
 <!-- SAMPLE DOCS -->
 <section id="sample">
-  <div class="container">
-    <h2 class="section-title serif reveal">ตัวอย่างเอกสารจริง</h2>
-    <p class="section-lead reveal">นี่คือตัวอย่างจากเคสจริง — เนื้อหาครบ ใช้ได้ทันทีหลังเซ็นชื่อ</p>
-
-    <div class="doc-stack-wrap reveal">
-
-      <!-- LEFT: Preview -->
-      <div>
-        <div class="doc-tabs">
-          <button class="doc-tab active" onclick="switchDoc(0)">แผนครอบครัว</button>
-          <button class="doc-tab" onclick="switchDoc(1)">พินัยกรรม</button>
-          <button class="doc-tab" onclick="switchDoc(2)">POA</button>
-          <button class="doc-tab" onclick="switchDoc(3)">Living Will</button>
-          <button class="doc-tab" onclick="switchDoc(4)">คู่มือฉุกเฉิน</button>
-        </div>
-        <div class="doc-preview">
-          <div class="doc-preview-title" id="doc-title">แผนคุ้มครองครอบครัว</div>
-          <div class="doc-preview-sub">จัดทำโดย คุณพยัต จิรสุวรรณพงศ์ | ฉบับตัวอย่าง Beta</div>
-
-          <!-- DOC 0: แผนครอบครัว -->
-          <div class="doc-preview-body active" id="body-0">
-            <p class="doc-text">การทำพินัยกรรมนั้น ถ้ามองแค่วิธีการจัดทำนั้นไม่ยากเลย เพียงแค่เขียนข้อความบอกว่าอยากให้ทรัพย์สินไปอยู่ที่ไหน ลงวันที่แล้วเซ็นชื่อต่อหน้าพยาน 2 คน ก็ถูกต้องตามกฎหมายแล้ว</p>
-            <p class="doc-text">แต่สำหรับพ่อแม่ที่มีลูกเล็ก เรื่องนี้ต้องให้ไกลกว่านั้น เพราะสิ่งที่คุณต้องการจริงๆ ไม่ใช่แค่เอกสารที่ถูกกฎหมาย แต่คือ <strong style="color:var(--cream);">แผน</strong></p>
-            <div class="doc-section-head">
-              <span>01</span>
-              <p>เงินพร้อมใช้ทันทีหลังจากไป</p>
-            </div>
-            <p class="doc-text">ทันทีที่เราจากไป โลกไม่ได้หยุดรอ ค่าใช้จ่ายเกิดขึ้นภายในไม่กี่ชั่วโมง ทั้งค่ารักษาพยาบาลครั้งสุดท้าย ค่าจัดงานศพ ค่าธรรมเนียมแจ้งตาย สิ่งเหล่านี้ต้องใช้ "เงินสดทันที"</p>
-            <div class="doc-highlight">
-              จากประสบการณ์ของผม สิ่งสำคัญไม่ใช่แค่ "มีเงินพอ" แต่ต้อง <strong>"หยิบใช้ได้ทันที"</strong> — ผมแนะนำให้เตรียมเงินสดในบัญชีที่คู่สมรสเข้าถึงได้โดยตรง
-            </div>
-            <p class="doc-text" style="color:var(--gold); font-size:13px;">+ อีก 11 ประเด็น ครอบคลุมทุกสถานการณ์ที่พ่อแม่ลูกเล็กควรรู้...</p>
-          </div>
-
-          <!-- DOC 1: พินัยกรรม -->
-          <div class="doc-preview-body" id="body-1">
-            <div class="doc-section-head">
-              <span>พินัยกรรม — แบบธรรมดา มาตรา ๑๖๕๖</span>
-              <p>ข้อ ๑ ผู้ทำพินัยกรรม</p>
-            </div>
-            <p class="doc-text">ข้าพเจ้า <span class="doc-blur">[ชื่อ-นามสกุล]</span> อายุ <span class="doc-blur">[อายุ]</span> ปี สัญชาติไทย ถือบัตรประจำตัวประชาชนเลขที่ <span class="doc-blur">[เลขบัตร]</span> ขอแสดงเจตนาอันเป็นคำสั่งครั้งสุดท้ายไว้ดังนี้</p>
-            <div class="doc-section-head">
-              <span>ข้อ ๒</span>
-              <p>การแต่งตั้งผู้จัดการมรดก</p>
-            </div>
-            <p class="doc-text">ข้าพเจ้าขอแต่งตั้งให้ <span class="doc-blur">[ชื่อคู่สมรส]</span> เป็นผู้จัดการมรดกเพียงผู้เดียว มีอำนาจเต็มในการดำเนินการทุกอย่างเกี่ยวกับกองมรดก รวมถึงการรับ ส่งมอบ ขาย โอน หรือชำระหนี้ของกองมรดก</p>
-            <div class="doc-section-head">
-              <span>ข้อ ๓</span>
-              <p>การแต่งตั้งผู้ปกครองบุตร</p>
-            </div>
-            <p class="doc-text">ข้าพเจ้าขอแต่งตั้งให้ <span class="doc-blur">[ชื่อผู้ปกครอง]</span> เป็นผู้ปกครองบุตรผู้เยาว์ทุกคน และขอแต่งตั้ง <span class="doc-blur">[ชื่อผู้ดูแลเงิน]</span> เป็นผู้ดูแลทรัพย์สินของบุตรแยกจากกัน</p>
-            <p class="doc-text" style="color:var(--gold); font-size:13px;">+ ระบุการแบ่งทรัพย์สินทุกรายการตามที่คุณต้องการ...</p>
-          </div>
-
-          <!-- DOC 2: POA -->
-          <div class="doc-preview-body" id="body-2">
-            <div class="doc-section-head">
-              <span>หนังสือมอบอำนาจ</span>
-              <p>ขอบเขตการมอบอำนาจ</p>
-            </div>
-            <div class="doc-highlight">
-              <strong>ธนาคารทุกแห่ง</strong> — ฝาก ถอน โอน ปิดบัญชี เปิดบัญชีใหม่<br>
-              <strong>หลักทรัพย์</strong> — ซื้อ ขาย โอน จัดการบัญชีหลักทรัพย์<br>
-              <strong>ประกันสังคม</strong> — เรียกร้องสิทธิ์และรับเงินแทน<br>
-              <strong>กรมสรรพากร</strong> — ยื่นแบบและรับเงินคืนภาษีแทน<br>
-              <strong>หน่วยงานราชการ</strong> — ติดต่อและยื่นเอกสารแทนในนามผู้มอบอำนาจ
-            </div>
-            <div class="doc-section-head">
-              <span>เงื่อนไข</span>
-              <p>มีผลทันที แม้ผู้มอบอำนาจหมดสติ</p>
-            </div>
-            <p class="doc-text">หนังสือฉบับนี้มีผลทันทีแต่วันลงนาม และยังคงมีผลแม้ผู้มอบอำนาจจะไม่สามารถถือสารหรือตัดสินใจได้ตามปกติ — นี่คือสิ่งที่ทำให้แตกต่างจาก POA ทั่วไป</p>
-          </div>
-
-          <!-- DOC 3: Living Will -->
-          <div class="doc-preview-body" id="body-3">
-            <div class="doc-section-head">
-              <span>หนังสือแสดงเจตนาฯ มาตรา ๑๒</span>
-              <p>เจตนาของข้าพเจ้า</p>
-            </div>
-            <p class="doc-text">ข้าพเจ้าไม่ประสงค์จะรับการรักษาที่มีเป้าหมายเพื่อยืดการตายเท่านั้น โดยเฉพาะในกรณีต่อไปนี้:</p>
-            <div class="doc-highlight">
-              — การใส่เครื่องช่วยหายใจในกรณีที่ไม่มีโอกาสฟื้นตัว<br>
-              — การกระตุ้นหัวใจในกรณีที่แพทย์วินิจฉัยว่าไม่มีโอกาสฟื้นคืนสติ<br>
-              — การให้อาหารทางสายยางในกรณีที่อยู่ในภาวะหมดสติถาวร<br>
-              — การรักษาที่ก่อให้เกิดความทรมานโดยไม่มีประโยชน์ต่อการฟื้นตัว
-            </div>
-            <div class="doc-section-head">
-              <span>ผู้ตัดสินใจแทน</span>
-              <p>หลัก: คู่สมรส | สำรอง: ระบุตามต้องการ</p>
-            </div>
-            <p class="doc-text">ข้าพเจ้าขอให้แพทย์และบุคลากรทางการแพทย์ทุกท่านปฏิบัติตามเจตนาที่ระบุไว้นี้</p>
-          </div>
-
-          <!-- DOC 4: คู่มือฉุกเฉิน -->
-          <div class="doc-preview-body" id="body-4">
-            <div class="doc-section-head">
-              <span>หมวด ๑</span>
-              <p>สิ่งที่ต้องทำใน 24 ชั่วโมงแรก</p>
-            </div>
-            <div class="doc-highlight">
-              <strong>แจ้งตาย:</strong> นำใบรับรองแพทย์ไปแจ้งสำนักงานเขต ภายใน 24 ชั่วโมง<br>
-              <strong>ขอใบมรณบัตร:</strong> ติดต่อโรงพยาบาลที่รักษา นำไปใช้ดำเนินเรื่องต่างๆ<br>
-              <strong>แจ้งนายจ้าง:</strong> ติดต่อ <span class="doc-blur">[สถานที่ทำงาน]</span> โทร <span class="doc-blur">[เบอร์โทร]</span>
-            </div>
-            <div class="doc-section-head">
-              <span>หมวด ๔</span>
-              <p>ประกันชีวิต — เรียกร้องได้ทันที</p>
-            </div>
-            <div class="doc-highlight">
-              บริษัทประกัน: <span class="doc-blur">[ชื่อบริษัท]</span><br>
-              กรมธรรม์เลข: <span class="doc-blur">[เลขกรมธรรม์]</span><br>
-              ทุนประกัน: <span class="doc-blur">[จำนวนเงิน]</span> บาท<br>
-              วิธีเรียกร้อง: ติดต่อบริษัทโดยตรง โทร <span class="doc-blur">[เบอร์]</span>
-            </div>
-            <p class="doc-text" style="color:var(--gold); font-size:13px;">+ อีก 5 หมวด ครอบคลุมทุกบัญชี ทรัพย์สิน และผู้ที่ต้องติดต่อ...</p>
-          </div>
-        </div>
+  <div class="doc-preview">
+    <div id="body-0" class="doc-preview-body active">
+      <img src="doc1.jpg" alt="แผนคุ้มครองครอบครัว" style="width:100%; border-radius:8px;">
+    </div>
+  
+    <div id="body-1" class="doc-preview-body">
+      <img src="doc2.jpg" alt="พินัยกรรม" style="width:100%; border-radius:8px;">
+    </div>
+  
+    <div id="body-2" class="doc-preview-body">
+      <img src="doc3.jpg" alt="วิธีใช้หนังสือมอบอำนาจ" style="width:100%; border-radius:8px;">
+    </div>
+  
+    <div id="body-3" class="doc-preview-body">
+      <div style="position:relative; overflow:hidden; border-radius:8px;">
+        <img src="doc4.jpg" alt="Living Will" style="width:100%; display:block;">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:50%; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); background:rgba(8,14,28,0.3);"></div>
+      </div>
+    </div>
+  
+    <div id="body-4" class="doc-preview-body">
+      <div style="position:relative; overflow:hidden; border-radius:8px;">
+        <img src="doc5.jpg" alt="คู่มือฉุกเฉิน" style="width:100%; display:block;">
+        <div style="position:absolute; bottom:0; left:0; right:0; height:50%; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); background:rgba(8,14,28,0.3);"></div>
       </div>
     </div>
   </div>
